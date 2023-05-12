@@ -33,9 +33,4 @@ CREATE TABLE IF NOT EXISTS {{ dialcode_keyspace_name }}.publisher (
   PRIMARY KEY (identifier)
 );
 
-{% if groups['cassandra-node-3'] is defined %}
-ALTER KEYSPACE {{ dialcode_keyspace_name }} WITH replication = {
-  'class': 'NetworkTopologyStrategy',
-  'datacenter1' : 2
-};
-{% endif %}
+
